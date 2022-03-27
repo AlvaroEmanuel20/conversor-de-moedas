@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <title>Conversor de moedas</title>
+</head>
+<body>
+    
+    <main>
+        <h1>Conversor de moeda</h1>
+
+        <label for="amount">Insira a quantia:</label>
+        <input type="number" name="amount" id="amount" placeholder="Quanto quer converter? (Apenas números)">
+
+        <div class="select-currency">
+            <div class="from">
+                <label for="from">De:</label>
+                <select name="from" id="from">
+                    <option value="USD" selected>Dólar</option>
+                    <option value="BRL">Real</option>
+                    <option value="EUR">Euro</option>
+                </select>
+            </div>
+
+            <div class="arrows">
+                <i onclick="switchCurrency()" class="fa-solid fa-right-left"></i>
+            </div>
+
+            <div class="to">
+                <label for="to">Para:</label>
+                <select name="to" id="to">
+                    <option value="USD">Dólar</option>
+                    <option value="BRL" selected>Real</option>
+                    <option value="EUR">Euro</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="errorNotice"></div>
+
+        <div class="result">
+            <h2>Resultado:</h2>
+            <p id="result"></p>
+        </div>
+        
+        <button onclick="convertAmount()">Converter Quantia</button>
+    </main>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
