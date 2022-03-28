@@ -13,6 +13,8 @@ class CurrencyConverter {
     this.#realToEUR = 0;
     this.#dolarToEUR = 0;
     this.#euroToUSD = 0;
+    this.createDateUSD = "";
+    this.createDateEUR = "";
     this.amount = document.getElementById("amount");
     this.fromCurrency = document.getElementById("from");
     this.toCurrency = document.getElementById("to");
@@ -32,6 +34,14 @@ class CurrencyConverter {
       currency: "EUR",
       minimumFractionDigits: 2
     });
+  }
+
+  getUSDToBRL() {
+    return this.#dolarToBRL;
+  }
+
+  getEURToBRL() {
+    return this.#euroToBRL;
   }
 
   setUSDToBRL(value) {
@@ -108,6 +118,8 @@ getCurrency().then(data => {
   currencyConverter.setBRLToEUR(data.BRLEUR.bid);
   currencyConverter.setUSDToEUR(data.USDEUR.bid);
   currencyConverter.setEURToUSD(data.EURUSD.bid);
+  currencyConverter.createDateUSD = data.USDBRL.create_date;
+  currencyConverter.createDateEUR = data.EURBRL.create_date;
 });
 
 function convertAmount() {
@@ -133,3 +145,18 @@ function switchCurrency() {
   currencyConverter.fromCurrency.value = currencyConverter.toCurrency.value;
   currencyConverter.toCurrency.value = aux;
 }
+
+function currencyReference() {
+  const dolarReference = document.getElementById("dolar-reference");
+  const euroReference = document.getElementById("euro-reference");
+  const gifLoading = document.createElement("img");
+  gifLoading.src = "../images/gif-loading.gif";
+  gifLoading.style.width = "30px";
+  dolarReference.appendChild(gifLoading);
+  setInterval(() => {
+    dolarReference.innerHTML = `Dólar: ${currencyConverter.getUSDToBRL()} (Atualizado: ${currencyConverter.createDateUSD})`;
+    euroReference.innerHTML = `Euro: ${currencyConverter.getEURToBRL()} (Atualizado: ${currencyConverter.createDateEUR})`;
+  }, 10000);
+}
+
+currencyReference();
