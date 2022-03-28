@@ -102,7 +102,6 @@ async function getCurrency() {
 }
 
 getCurrency().then(data => {
-  console.log(data);
   currencyConverter.setUSDToBRL(data.USDBRL.bid);
   currencyConverter.setBRLToUSD(data.BRLUSD.bid);
   currencyConverter.setEURToBRL(data.EURBRL.bid);
