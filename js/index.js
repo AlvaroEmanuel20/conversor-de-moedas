@@ -150,7 +150,7 @@ function currencyReference() {
   const dolarReference = document.getElementById("dolar-reference");
   const euroReference = document.getElementById("euro-reference");
   const gifLoading = document.createElement("img");
-  gifLoading.src = "../images/gif-loading.gif";
+  gifLoading.src = "./images/gif-loading.gif";
   gifLoading.style.width = "30px";
   dolarReference.appendChild(gifLoading);
   setInterval(() => {
