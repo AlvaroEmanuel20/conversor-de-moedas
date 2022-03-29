@@ -93,7 +93,7 @@ class CurrencyConverter {
       errorNotice.style.marginTop = "5px";
       divNotice.appendChild(errorNotice);
 
-      calculate = "Preencha corretamente";
+      return calculate = false;
     }
 
     return calculate;
@@ -127,12 +127,18 @@ function convertAmount() {
   const from = currencyConverter.fromCurrency.value;
   const to = currencyConverter.toCurrency.value;
 
-  if (to === "USD") {
-    currencyConverter.result.innerHTML = currencyConverter.formatterUS.format(result);
-  } else if (to === "BRL") {
-    currencyConverter.result.innerHTML = currencyConverter.formatterBR.format(result);
-  } else if (to === "EUR") {
-    currencyConverter.result.innerHTML = currencyConverter.formatterEU.format(result);
+  if (currencyConverter.amount.value === "") {
+    currencyConverter.result.innerHTML = "Preencha a quantia";
+  } else if (result === false) {
+    currencyConverter.result.innerHTML = "Preencha novamente";
+  } else {
+    if (to === "USD") {
+      currencyConverter.result.innerHTML = currencyConverter.formatterUS.format(result);
+    } else if (to === "BRL") {
+      currencyConverter.result.innerHTML = currencyConverter.formatterBR.format(result);
+    } else if (to === "EUR") {
+      currencyConverter.result.innerHTML = currencyConverter.formatterEU.format(result);
+    }
   }
 
   currencyConverter.amount.value = "";
@@ -156,7 +162,7 @@ function currencyReference() {
   setInterval(() => {
     dolarReference.innerHTML = `Dólar: ${currencyConverter.getUSDToBRL()} (Atualizado: ${currencyConverter.createDateUSD})`;
     euroReference.innerHTML = `Euro: ${currencyConverter.getEURToBRL()} (Atualizado: ${currencyConverter.createDateEUR})`;
-  }, 10000);
+  }, 5000);
 }
 
 currencyReference();
