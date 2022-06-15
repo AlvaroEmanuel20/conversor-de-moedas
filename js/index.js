@@ -72,7 +72,6 @@ class CurrencyConverter {
     this.#euroToUSD = value;
   }
 
-  //CURRENCY CONVERT FUNCTION
   currencyOperation() {
     const from = this.fromCurrency.value;
     const to = this.toCurrency.value;
