@@ -19,6 +19,8 @@ class CurrencyConverter {
     this.fromCurrency = document.getElementById("from");
     this.toCurrency = document.getElementById("to");
     this.result = document.getElementById("result");
+    
+    //CURRENCY FORMATS
     this.formatterBR = new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
@@ -36,6 +38,7 @@ class CurrencyConverter {
     });
   }
 
+  //GETTERS FUNCTIONS
   getUSDToBRL() {
     return this.#dolarToBRL;
   }
@@ -44,6 +47,7 @@ class CurrencyConverter {
     return this.#euroToBRL;
   }
 
+  //SETTERS FUNCTIONS
   setUSDToBRL(value) {
     this.#dolarToBRL = value;
   }
@@ -68,6 +72,7 @@ class CurrencyConverter {
     this.#euroToUSD = value;
   }
 
+  //CURRENCY CONVERT FUNCTION
   currencyOperation() {
     const from = this.fromCurrency.value;
     const to = this.toCurrency.value;
@@ -162,7 +167,7 @@ function currencyReference() {
   setInterval(() => {
     dolarReference.innerHTML = `Dólar: ${currencyConverter.getUSDToBRL()} (Atualizado: ${currencyConverter.createDateUSD})`;
     euroReference.innerHTML = `Euro: ${currencyConverter.getEURToBRL()} (Atualizado: ${currencyConverter.createDateEUR})`;
-  }, 5000);
+  }, 2000);
 }
 
 currencyReference();
