@@ -29,6 +29,8 @@ Para realizar a requisição a API da Awesome API usei o recurso `fetch` do Java
 
 ## 🔗 Links
 [![Github](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/AlvaroEmanuel20/)
+
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/alvaroemanuel20)
+
 Entre em contato: alvarodiasribeiro16@gmail.com
 
