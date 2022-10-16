@@ -1,13 +1,22 @@
 class CurrencyConverter {
+    #usdToBrl;
+    #brlToUsd;
+    #eurToBrl;
+    #brlToEur;
+    #usdToEur;
+    #eurToUsd;
+    #dateUSD;
+    #dateEUR;
+
     constructor() {
-        this.usdToBrl;
-        this.brlToUsd;
-        this.eurToBrl;
-        this.brlToEur;
-		this.usdToEur;
-		this.eurToUsd;
-        this.dateUSD;
-        this.dateEUR;
+        this.#usdToBrl;
+        this.#brlToUsd;
+        this.#eurToBrl;
+        this.#brlToEur;
+		this.#usdToEur;
+		this.#eurToUsd;
+        this.#dateUSD;
+        this.#dateEUR;
         this.amount = document.getElementById("amount");
         this.fromCurrency = document.getElementById("from");
         this.toCurrency = document.getElementById("to");
@@ -16,7 +25,7 @@ class CurrencyConverter {
 
 	async getCurrency() {
 		const url = "https://economia.awesomeapi.com.br/last/USD-BRL,BRL-USD,EUR-BRL,BRL-EUR,USD-EUR,EUR-USD";
-		const response = await fetch (url);
+		const response = await fetch(url);
 		const data = await response.json();
 	
 		if (response.ok) {
@@ -46,7 +55,7 @@ class CurrencyConverter {
 	dateFormatter(dateData) {
 		const date = new Date(dateData);
 		const day = date.getDate() <= 9 ? `0${date.getDate()}` : date.getDate();
-		const month = date.getMonth() <= 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+		const month = date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
 		const year = date.getFullYear();
 
 		return `${day}/${month}/${year}`;
