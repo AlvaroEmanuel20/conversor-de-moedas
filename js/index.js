@@ -107,8 +107,8 @@ class CurrencyConverter {
 		dolarReference.appendChild(gifLoading);
 	
 		setInterval(() => {
-			dolarReference.innerHTML = `Dólar: ${this.usdToBrl} (Atualizado: ${this.dateUSD})`;
-			euroReference.innerHTML = `Euro: ${this.eurToBrl} (Atualizado: ${this.dateEUR})`;
+			dolarReference.innerHTML = `<strong>Dólar: ${this.usdToBrl}</strong> - ${this.dateUSD}`;
+			euroReference.innerHTML = `<strong>Euro: ${this.eurToBrl}</strong> - ${this.dateEUR}`;
 		}, 1500);
 	}
 }
